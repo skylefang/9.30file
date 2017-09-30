@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+</head>
+<body>
+  <span></span>天
+  <span></span>小时
+  <span></span>分钟
+  <span></span>秒
+<script>
+    let spans = document.querySelectorAll('span');
+    setInterval(fn,1000);
+    let zq = new Date('2017/10/4 0:0:0');
+    fn();
+    function fn(){
+        let arr = [];
+        let now = new Date();
+
+        let cha = Math.floor((zq.getTime()-now.getTime())/1000);
+        console.log(now.getTime())
+        let day = Math.floor(cha/(60*60*24));
+        arr.push(day);
+        cha = cha%(60*60*24);
+        let hours = Math.floor(cha/(60*60));
+        arr.push(hours)
+        cha = cha%(60*60);
+        let min = Math.floor(cha/60);
+        arr.push(min);
+        let sec = cha%60;
+        arr.push(sec);
+        arr.forEach((element,index)=>{
+            spans[index].innerText = element;
+        })
+    }
+
+</script>
+
+</body>
+</html>

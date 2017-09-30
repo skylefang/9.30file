@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3分钟倒计时</title>
+</head>
+<body>
+距离结束还有<span></span>分钟
+<span></span>秒
+<script>
+
+    let after = new Date();
+    let spans = document.querySelectorAll('span')
+    after.setMinutes(after.getMinutes()+3);
+    setInterval(fn,1000);
+    fn();
+    function fn(){
+        let now = new Date();
+    let cha = Math.floor((after.getTime()-now.getTime())/1000);
+    let arr = [];
+    let min = Math.floor(cha/60);
+    let sec = Math.floor(cha%60);
+    arr.push(min,sec);
+    arr.forEach((element,index)=>{
+        spans[index].innerText=element;
+    })
+}
+
+</script>
+
+</body>
+</html>
